@@ -23,15 +23,15 @@ namespace FileTests
 
 		TEST_METHOD(ConstructorTest)
 		{
-			AFile File = AFile("..//ReadFile.txt", EFileMode::ReadOnly);
+			AFile File = AFile("..//TestFiles//ReadFile.txt", EFileMode::ReadOnly);
 
-			Assert::AreEqual("..//ReadFile.txt", File.GetFilePath());
+			Assert::AreEqual("..//TestFiles//ReadFile.txt", File.GetFilePath());
 			Assert::AreEqual(EFileMode::ReadOnly, File.GetFileMode());
 		}
 
 		TEST_METHOD(ReadTest)
 		{
-			AFile File = AFile("..//ReadFile.txt", EFileMode::ReadOnly);
+			AFile File = AFile("..//TestFiles//ReadFile.txt", EFileMode::ReadOnly);
 			AString ExpectedString = "Qwerty123\n!@#$%^&*()";
 			TArray<char> RealString = File.ReadBytes(File.GetFileSize());
 
@@ -45,7 +45,7 @@ namespace FileTests
 
 		TEST_METHOD(WriteTest)
 		{
-			AFile File = AFile("..//WriteFile.txt", EFileMode::ClearAndReadWrite);
+			AFile File = AFile("..//TestFiles//WriteFile.txt", EFileMode::ClearAndReadWrite);
 			AString StringToWrite = "Qwerty123\n!@#$%^&*()";
 			TArray<char> CharArray = TArray<char>(StringToWrite.GetLength());
 			for (int i = 0; i < StringToWrite.GetLength(); ++i)
@@ -55,7 +55,7 @@ namespace FileTests
 
 			File.WriteBytes(CharArray);
 			
-			File.Open("..//ReadFile.txt", EFileMode::ReadOnly);
+			File.Open("..//TestFiles//ReadFile.txt", EFileMode::ReadOnly);
 			CharArray = File.ReadBytes(File.GetFileSize());
 
 			for (int i = 0; i < StringToWrite.GetLength(); i++)
@@ -69,7 +69,7 @@ namespace FileTests
 
 		TEST_METHOD(SizeTest)
 		{
-			AFile File = AFile("..//ReadFile.txt", EFileMode::ReadOnly);
+			AFile File = AFile("..//TestFiles//ReadFile.txt", EFileMode::ReadOnly);
 			AString ExpectedString = "Qwerty123\n!@#$%^&*()";
 
 			Assert::AreEqual(ExpectedString.GetLength(), File.GetFileSize());
@@ -77,22 +77,22 @@ namespace FileTests
 
 		TEST_METHOD(PathTest)
 		{
-			AFile File = AFile("..//ReadFile.txt", EFileMode::ReadOnly);
+			AFile File = AFile("..//TestFiles//ReadFile.txt", EFileMode::ReadOnly);
 				
-			Assert::AreEqual("..//ReadFile.txt", File.GetFilePath());
+			Assert::AreEqual("..//TestFiles//ReadFile.txt", File.GetFilePath());
 		}
 
 		TEST_METHOD(ModeTest)
 		{
 			AFile File;
 
-			File.Open("..//ReadFile.txt", EFileMode::ReadOnly);
+			File.Open("..//TestFiles//ReadFile.txt", EFileMode::ReadOnly);
 			Assert::AreEqual(EFileMode::ReadOnly, File.GetFileMode());
 
-			File.Open("..//ReadFile.txt", EFileMode::WriteOnly);
+			File.Open("..//TestFiles//ReadFile.txt", EFileMode::WriteOnly);
 			Assert::AreEqual(EFileMode::WriteOnly, File.GetFileMode());
 
-			File.Open("..//ReadFile.txt", EFileMode::ReadWrite);
+			File.Open("..//TestFiles//ReadFile.txt", EFileMode::ReadWrite);
 			Assert::AreEqual(EFileMode::ReadWrite, File.GetFileMode());
 
 			File.Close();
@@ -101,7 +101,7 @@ namespace FileTests
 
 		TEST_METHOD(SetReadWritePositionTest)
 		{
-			AFile File("..//ReadFile.txt", EFileMode::ReadOnly);
+			AFile File("..//TestFiles//ReadFile.txt", EFileMode::ReadOnly);
 
 			for (int i = 0; i < 10; i++)
 			{
@@ -112,10 +112,10 @@ namespace FileTests
 
 		TEST_METHOD(FileExistsTest)
 		{
-			Assert::AreEqual(true, AFile::FileExists("..//ReadFile.txt"));
-			Assert::AreEqual(true, AFile::FileExists("..//WriteFile.txt"));
-			Assert::AreEqual(false, AFile::FileExists("..//__ubefku.txt"));
-			Assert::AreEqual(false, AFile::FileExists("..//qwerty.txt"));
+			Assert::AreEqual(true, AFile::FileExists("..//TestFiles//ReadFile.txt"));
+			Assert::AreEqual(true, AFile::FileExists("..//TestFiles//WriteFile.txt"));
+			Assert::AreEqual(false, AFile::FileExists("..//TestFiles//__ubefku.txt"));
+			Assert::AreEqual(false, AFile::FileExists("..//TestFiles//qwerty.txt"));
 		}
 	};
 }

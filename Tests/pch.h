@@ -9,6 +9,6 @@
 
 // add headers that you want to pre-compile here
 
-#include "../MyLibrary/Source/MyLibrary.h"
+#include "../../MyLibrary/Source/MyLibrary.h"
 
 #endif //PCH_H
