@@ -74,40 +74,53 @@ namespace AlgoTests
 
 		TEST_METHOD(QuickSortTest)
 		{
-			TArray<int> ExpectedArray1 = { 0, 1, 2, 3, 4, 5 };
-			TArray<int> ActualArray1 = { 0, 1, 2, 3, 4, 5 };
-			LAlgo::QuickSort(ActualArray1, ESortType::Ascending);
-			Assert::AreEqual(ExpectedArray1, ActualArray1);
+			TArray<int> ExpectedArray = { 0, 1, 2, 3, 4, 5 };
+			TArray<int> ActualArray = { 0, 1, 2, 3, 4, 5 };
+			LAlgo::QuickSort(ActualArray, ESortType::Ascending);
+			Assert::AreEqual(ExpectedArray, ActualArray);
 
-			TArray<int> ExpectedArray2 = { 0, 1, 2, 3, 4, 5 };
-			TArray<int> ActualArray2 = { 5, 4, 3, 2, 1, 0 };
-			LAlgo::QuickSort(ActualArray2, ESortType::Ascending);
-			Assert::AreEqual(ExpectedArray2, ActualArray2);
+			ExpectedArray = { 0, 1, 2, 3, 4, 5 };
+			ActualArray = { 5, 4, 3, 2, 1, 0 };
+			LAlgo::QuickSort(ActualArray, ESortType::Ascending);
+			Assert::AreEqual(ExpectedArray, ActualArray);
 
-			TArray<int> ExpectedArray3 = TArray<int>();
-			TArray<int> ActualArray3 = TArray<int>();
-			LAlgo::QuickSort(ActualArray3, ESortType::Ascending);
-			Assert::AreEqual(ExpectedArray3, ActualArray3);
+			ExpectedArray = TArray<int>();
+			ActualArray = TArray<int>();
+			LAlgo::QuickSort(ActualArray, ESortType::Ascending);
+			Assert::AreEqual(ExpectedArray, ActualArray);
 
-			TArray<int> ExpectedArray4 = { 0, 1, 2, 3, 4, 5 };
-			TArray<int> ActualArray4 = { 0, 5, 3, 2, 4, 1};
-			LAlgo::QuickSort(ActualArray4, ESortType::Ascending);
-			Assert::AreEqual(ExpectedArray4, ActualArray4);
+			ExpectedArray = { 0, 1, 2, 3, 4, 5 };
+			ActualArray = { 0, 5, 3, 2, 4, 1};
+			LAlgo::QuickSort(ActualArray, ESortType::Ascending);
+			Assert::AreEqual(ExpectedArray, ActualArray);
 
-			TArray<int> ExpectedArray5 = { 5, 4, 3, 2, 1, 0 };
-			TArray<int> ActualArray5 = { 0, 1, 2, 3, 4, 5 };
-			LAlgo::QuickSort(ActualArray5, ESortType::Descending);
-			Assert::AreEqual(ExpectedArray5, ActualArray5);
+			ExpectedArray = { 5, 4, 3, 2, 1, 0 };
+			ActualArray = { 0, 1, 2, 3, 4, 5 };
+			LAlgo::QuickSort(ActualArray, ESortType::Descending);
+			Assert::AreEqual(ExpectedArray, ActualArray);
 
-			TArray<int> ExpectedArray6 = { 5, 4, 3, 2, 1, 0 };
-			TArray<int> ActualArray6 = { 0, 5, 3, 2, 4, 1 };
-			LAlgo::QuickSort(ActualArray6, ESortType::Descending);
-			Assert::AreEqual(ExpectedArray6, ActualArray6);
+			ExpectedArray = { 5, 4, 3, 2, 1, 0 };
+			ActualArray = { 0, 5, 3, 2, 4, 1 };
+			LAlgo::QuickSort(ActualArray, ESortType::Descending);
+			Assert::AreEqual(ExpectedArray, ActualArray);
 		}
 
 		TEST_METHOD(MergeSortTest)
 		{
+			TList<int> ExpectedList = { 0, 1, 2, 3, 4, 5 };
+			TList<int> ActualList = { 5, 4, 3, 2, 1 };
+			LAlgo::MergeSort(ActualList, ESortType::Ascending);
+			Assert::AreEqual(ExpectedList, ActualList);
 
+			ExpectedList = { 5, 4, 3, 2, 1, 0 };
+			ActualList = { 0, 1, 2, 3, 4, 5 };
+			LAlgo::MergeSort(ActualList, ESortType::Descending);
+			Assert::AreEqual(ExpectedList, ActualList);
+
+			ExpectedList = TList<int>();
+			ActualList = TList<int>();
+			LAlgo::MergeSort(ActualList, ESortType::Ascending);
+			Assert::AreEqual(ExpectedList, ActualList);
 		}
 
 		TEST_METHOD(ReverseTest)
@@ -117,8 +130,18 @@ namespace AlgoTests
 			LAlgo::Reverse(ActualArray);
 			Assert::AreEqual(ExpectedArray, ActualArray);
 
+			ExpectedArray = { 6, 5, 4, 3, 2, 1, 0 };
+			ActualArray = { 0, 1, 2, 3, 4, 5, 6 };
+			LAlgo::Reverse(ActualArray);
+			Assert::AreEqual(ExpectedArray, ActualArray);
+
 			TList<int> ExpectedList = { 5, 4, 3, 2, 1, 0 };
 			TList<int> ActualList = { 0, 1, 2, 3, 4, 5 };
+			LAlgo::Reverse(ActualList);
+			Assert::AreEqual(ExpectedList, ActualList);
+
+			ExpectedList = { 6, 5, 4, 3, 2, 1, 0 };
+			ActualList = { 0, 1, 2, 3, 4, 5, 6 };
 			LAlgo::Reverse(ActualList);
 			Assert::AreEqual(ExpectedList, ActualList);
 		}
