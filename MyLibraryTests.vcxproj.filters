@@ -13,19 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Source Files\Tests">
-      <UniqueIdentifier>{2f6749f4-6a52-4794-832f-c410656a29f9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\TestFiles">
-      <UniqueIdentifier>{09d588d0-2dee-4639-964c-06467c405c01}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <None Include=".gitignore" />
-    <None Include="README.md" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="Tests\pch.cpp">
+    <ClCompile Include="pch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Tests\AlgoTests.cpp">
@@ -45,8 +35,12 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Tests\pch.h">
+    <ClInclude Include="pch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="README.md" />
+    <None Include=".gitignore" />
   </ItemGroup>
 </Project>
