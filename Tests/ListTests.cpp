@@ -217,14 +217,5 @@ namespace ListTests
 			Assert::IsTrue(List == List);
 			Assert::IsTrue(List4 == List5);
 		}
-
-		TEST_METHOD(ConvertToTArrayTest)
-		{
-			TList<int> List = { 0, 1, 2, 3, 4, 5 };
-			TArray<int> ExpectedArray = { 0, 1, 2, 3, 4, 5 };
-			TArray<int> ActualArray = List;
-			Assert::AreEqual(ExpectedArray, ActualArray);
-			Assert::AreEqual(ExpectedArray, static_cast<TArray<int>>(List));
-		}
 	};
 }
