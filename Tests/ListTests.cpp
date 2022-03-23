@@ -10,6 +10,7 @@ namespace Microsoft
 		namespace CppUnitTestFramework
 		{
 			template<> static std::wstring ToString<TList<int>>(const class TList<int>& t) { return L"TList<int>"; }
+			template<> static std::wstring ToString<TArray<int>>(const class TArray<int>& t) { return L"TArray<int>"; }
 		}
 	}
 }
@@ -215,6 +216,14 @@ namespace ListTests
 			Assert::IsTrue(List == List3);
 			Assert::IsTrue(List == List);
 			Assert::IsTrue(List4 == List5);
+		}
+
+		TEST_METHOD(ConvertToTArrayTest)
+		{
+			TList<int> List = { 0, 1, 2, 3, 4, 5 };
+			TArray<int> ExpectedArray = { 0, 1, 2, 3, 4, 5 };
+			TArray<int> ActualArray = List;
+			Assert::AreEqual(ExpectedArray, ActualArray);
 		}
 	};
 }
