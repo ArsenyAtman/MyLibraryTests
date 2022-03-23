@@ -105,24 +105,6 @@ namespace AlgoTests
 			Assert::AreEqual(ExpectedArray, ActualArray);
 		}
 
-		TEST_METHOD(MergeSortTest)
-		{
-			TList<int> ExpectedList = { 0, 1, 2, 3, 4, 5 };
-			TList<int> ActualList = { 5, 4, 3, 2, 1 };
-			LAlgo::MergeSort(ActualList, ESortType::Ascending);
-			Assert::AreEqual(ExpectedList, ActualList);
-
-			ExpectedList = { 5, 4, 3, 2, 1, 0 };
-			ActualList = { 0, 1, 2, 3, 4, 5 };
-			LAlgo::MergeSort(ActualList, ESortType::Descending);
-			Assert::AreEqual(ExpectedList, ActualList);
-
-			ExpectedList = TList<int>();
-			ActualList = TList<int>();
-			LAlgo::MergeSort(ActualList, ESortType::Ascending);
-			Assert::AreEqual(ExpectedList, ActualList);
-		}
-
 		TEST_METHOD(ReverseTest)
 		{
 			TArray<int> ExpectedArray = { 5, 4, 3, 2, 1, 0 };
