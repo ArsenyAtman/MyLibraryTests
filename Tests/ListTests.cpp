@@ -224,6 +224,7 @@ namespace ListTests
 			TArray<int> ExpectedArray = { 0, 1, 2, 3, 4, 5 };
 			TArray<int> ActualArray = List;
 			Assert::AreEqual(ExpectedArray, ActualArray);
+			Assert::AreEqual(ExpectedArray, static_cast<TArray<int>>(List));
 		}
 	};
 }
